@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef1f8;
+  --border: #dfe3ee;
+  --text: #121626;
+  --muted: #5b6377;
+  --primary: #3651d4;
+  --primary-hover: #2c43b6;
+  --primary-contrast: #ffffff;
+  --primary-soft: #e6eafe;
+  --success: #12805c;
+  --success-soft: #e1f5ec;
+  --warning: #9a5b00;
+  --warning-soft: #fff3db;
+  --danger: #c02d3a;
+  --danger-soft: #fde8ea;
+  --whatsapp: #128c4a;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0d1018;
+  --surface: #161a25;
+  --surface-2: #1e2331;
+  --border: #2a3042;
+  --text: #eef0f6;
+  --muted: #9aa2b6;
+  --primary: #8299ff;
+  --primary-hover: #9caeff;
+  --primary-contrast: #0d1018;
+  --primary-soft: #232b4d;
+  --success: #4fd1a1;
+  --success-soft: #143327;
+  --warning: #f3b65b;
+  --warning-soft: #3a2a10;
+  --danger: #ff8089;
+  --danger-soft: #3d1a1e;
+  --whatsapp: #34c472;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--primary-contrast);
+  --color-primary-soft: var(--primary-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-whatsapp: var(--whatsapp);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-in {
+    animation: rise 180ms ease-out;
+  }
+  .scan-line {
+    animation: sweep 2.2s ease-in-out infinite;
+  }
+}
+
+/* Transform only: if animations are paused (background tab), content stays visible. */
+@keyframes rise {
+  from {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes sweep {
+  0%,
+  100% {
+    top: 8%;
+  }
+  50% {
+    top: 88%;
+  }
+}
